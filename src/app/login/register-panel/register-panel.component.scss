@@ -1,0 +1,65 @@
+@import "./src/styles";
+
+
+.form-header {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.terms-list {
+  margin-top: 10px;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.terms-list-item{
+  list-style: none;
+  display: flex;
+  label{
+    font-size: 12px;
+    margin-left: 5px;
+    &.checkAllTerms{
+      font-weight: bold;
+    }
+  }
+}
+
+.terms-list-item + .terms-list-item {
+  margin-top: 5px;
+  padding-left: 5px;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  position: relative;
+  background-color: transparent;
+  border: 2px solid $n1;
+  width: 12px;
+  height: 12px;
+  padding: 6px;
+  border-radius: 5px;
+  display: inline-block;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+
+  &:active, &:checked:active, &:hover {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    border-color: $n2;
+  }
+
+  &:checked {
+    background-color: $n1;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    color: #99a1a7;
+  }
+
+  &:checked:after {
+    content: '\2714';
+    font-size: 8px;
+    position: absolute;
+    top: 0px;
+    left: 3px;
+    color: $n;
+  }
+
+}

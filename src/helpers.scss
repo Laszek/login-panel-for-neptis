@@ -1,0 +1,32 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+// colors
+$p1: #ED3331;
+$p2: #00A8BF;
+
+$n: #FFFFFF;
+$n1: #C1C1C1;
+$n2: #4D4D4D;
+$n3: #202020;
+$n4: #000000;
+
+//media queries
+$bp-phone: 640px;
+$bp-tablet: 1024px;
+$bp-desktop: 1259px;
+
+@mixin devices ($breakpoint) { //the name of the mixin is devices
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: $bp-tablet) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: $bp-phone) {
+      @content;
+    }
+  }
+}

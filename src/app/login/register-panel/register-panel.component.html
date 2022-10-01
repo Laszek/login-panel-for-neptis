@@ -1,0 +1,30 @@
+<div class="panel register-panel">
+  <h3 class="form-header">Rejestracja</h3>
+  <form class="input-group">
+    <app-form-input
+      name="email"
+      placeholder="E-mail"
+      iconPath="./assets/images/icons/email.svg"
+    ></app-form-input>
+    <app-form-input
+      name="password"
+      placeholder="Hasło"
+      iconPath="./assets/images/icons/lock.svg"
+      type="password"
+    ></app-form-input>
+    <app-form-input
+      name="repeat-password"
+      placeholder="Powtórz hasło"
+      iconPath="./assets/images/icons/lock.svg"
+      type="password"
+    ></app-form-input>
+    <ul class="terms-list">
+      <li class="terms-list-item"><input type="checkbox" name="checkAllTerms" id="checkAllTerms"><label for="checkAllTerms" class="checkAllTerms">Akceptuję wszystkie zgody</label></li>
+      <li class="terms-list-item" *ngFor="let term of terms; let index = index">
+        <input type="checkbox" name="term{{index}}" id="term{{index}}">
+        <label for="term{{index}}">{{term.text}}</label>
+      </li>
+    </ul>
+    <button type="submit" class="btn btn-register">Zarejestruj się</button>
+  </form>
+</div>

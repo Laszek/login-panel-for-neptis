@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@import './helpers';
+
+*, body, body:after, body:before {
+  box-sizing: border-box;
+  margin:0;
+  color: $n;
+  font-family: Poppins;
+}
+
+.btn {
+  width:100%;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 0;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+
+  &.btn-login{
+    background: $p1;
+    &:hover {
+      background: darken($p1, 10%);
+    }
+  }
+  &.btn-register{
+    background: $p2;
+    &:hover {
+      background: darken($p2, 5%);
+    }
+  }
+}
+
+.panel {
+  width: 280px;
+}

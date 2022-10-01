@@ -6,9 +6,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { LoginPanelComponent } from './login/login-panel/login-panel.component';
+import { RegisterPanelComponent } from './login/register-panel/register-panel.component';
+import { FormInputComponent } from "./shared/UI/form-input/form-input.component";
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, LoginPanelComponent, RegisterPanelComponent, FormInputComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

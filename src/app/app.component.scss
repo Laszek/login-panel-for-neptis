@@ -1,0 +1,12 @@
+@import '../helpers';
+
+* {
+
+  @include devices(tablet) {
+
+  }
+
+  @include devices(mobile) {
+
+  }
+}
