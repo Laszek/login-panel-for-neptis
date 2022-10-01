@@ -6,7 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  constructor() {}
+  currentPanel: string = 'login';
 
-  ngOnInit(): void {}
+  constructor() {
+  }
+
+  ngOnInit(): void {
+  }
+
+  togglePanel(){
+    if(this.currentPanel === 'login')
+      this.currentPanel = 'register';
+    else
+      this.currentPanel = 'login';
+  }
 }

@@ -18,11 +18,11 @@ import { Component, Input, OnInit } from '@angular/core';
     input {
       background: none;
       border: 0;
-      font-size: 16px;
+      font-size: 1em;
       margin-left: 8px;
     }
     img{
-      width: 24px;
+      width: 1.5em;
       margin-bottom: 3px;
     }
   `]

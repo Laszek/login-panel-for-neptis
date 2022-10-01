@@ -1,10 +1,13 @@
+<header class="header">
+  <img src="/assets/images/yanosik-logo-desktop.png" alt="" class="header--logo">
+</header>
 <div class="container">
-  <header class="header">
-    <img src="/assets/images/yanosik-logo-desktop.png" height="120px" alt="" class="header--logo">
-  </header>
   <div class="main-panel">
-    <app-login-panel></app-login-panel>
-    <span class="vertical-line"></span>
-    <app-register-panel></app-register-panel>
+    <app-login-panel *ngIf="currentPanel === 'login'; else registerPanel"></app-login-panel>
+    <p class="info-label">{{currentPanel === 'login' ? "Nie masz konta?" : "Masz już konto?"}}</p>
+    <button class="btn btn-stroke {{currentPanel === 'login' ? 'register' : 'login'}}" (click)="togglePanel()">{{currentPanel === 'login' ? "Zarejestruj się" : "Zaloguj się"}}</button>
+    <ng-template #registerPanel>
+      <app-register-panel></app-register-panel>
+    </ng-template>
   </div>
 </div>

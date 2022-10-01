@@ -8,14 +8,20 @@
   font-family: Poppins;
 }
 
+body {
+  background-color: $n3;
+}
+
 .btn {
   width:100%;
   border: 0;
+  background: transparent;
   border-radius: 5px;
   padding: 10px 0;
-  font-size: 16px;
-  margin-top: 20px;
+  font-size: 1em;
+  margin: 10px 0;
   cursor: pointer;
+  transition: background-color .3s, border .3s;
 
   &.btn-login{
     background: $p1;
@@ -29,8 +35,22 @@
       background: darken($p2, 5%);
     }
   }
+
+  &.btn-stroke{
+    border: 2px solid $n1;
+    &.login:hover {
+      border-color: transparent;
+      background: $p1;
+    }
+    &.register:hover {
+      border-color: transparent;
+      background: $p2;
+    }
+  }
 }
 
 .panel {
-  width: 280px;
+  position: relative;
+  width: 100%;
+  max-width: 300px;
 }

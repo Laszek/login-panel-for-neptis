@@ -12,6 +12,7 @@ $n3: #202020;
 $n4: #000000;
 
 //media queries
+$bp-small-phone: 340px;
 $bp-phone: 640px;
 $bp-tablet: 1024px;
 $bp-desktop: 1259px;
@@ -26,6 +27,11 @@ $bp-desktop: 1259px;
 
   @if $breakpoint == mobile {
     @media only screen and (max-width: $bp-phone) {
+      @content;
+    }
+  }
+  @if $breakpoint == small-mobile {
+    @media only screen and (max-width: $bp-small-phone) {
       @content;
     }
   }

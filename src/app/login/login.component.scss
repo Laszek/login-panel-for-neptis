@@ -1,38 +1,60 @@
 @import "../../helpers";
+
+.header {
+  height: 13vh;
+  img {
+    height: 100%;
+  }
+  text-align: center;
+}
+
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
   width: 100vw;
-  height: 100vh;
+  min-height: 87vh;
+  overflow: hidden;
   background-image: url("../../assets/images/login-background.jpg");
-  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
+  background-position: center;
+
 }
+
 .main-panel {
-  display: flex;
-  justify-content: space-evenly;
-  width: 1000px;
-  height: 500px;
-  padding: 50px;
+  height: 100%;
+  padding: 40px 80px;
+  position: relative;
 
-  background: radial-gradient(circle,#383838,#2F2F2F,#292929, #282828,#1D1D1D);
-  box-shadow:
-    /*bottom shadow*/
-    0px 20px 20px 5px rgba(0,0,0,0.2),
-    0px 5px 10px 5px rgba(0,0,0,0.2),
+  background: radial-gradient(circle, #383838, #2F2F2F, #292929, #282828, #1D1D1D);
+  box-shadow: /*bottom shadow*/
+    0px 20px 20px 5px rgba(0, 0, 0, 0.2),
+    0px 5px 10px 5px rgba(0, 0, 0, 0.2),
       /*long bottom shadow*/
-    0px 50px 30px 5px rgba(0,0,0,0.4),
+    0px 50px 30px 5px rgba(0, 0, 0, 0.4),
       /*right shadow*/
-    20px 50px 30px 5px rgba(0,0,0,0.2),
+    20px 50px 30px 5px rgba(0, 0, 0, 0.2),
       /*left shadow*/
-    -20px 50px 50px 5px rgba(0,0,0,0.2),
+    -20px 50px 50px 5px rgba(0, 0, 0, 0.2),
       /*right inset*/
-    inset 10px 0px 40px 5px rgba(0,0,0,0.1),
+    inset 10px 0px 40px 5px rgba(0, 0, 0, 0.1),
       /*left inset*/
-    inset -10px 0px 40px 5px rgba(0,0,0,0.1);
+    inset -10px 0px 40px 5px rgba(0, 0, 0, 0.1);
+
+  @include devices(mobile) {
+    font-size: .9rem;
+    padding: 40px 40px
+  }
+  @include devices(small-mobile) {
+    font-size: .7rem;
+  }
 }
 
-.vertical-line {
-  border-right: 1px solid $n;
+.info-label {
+  margin-top: 15px;
+  text-align: center;
 }

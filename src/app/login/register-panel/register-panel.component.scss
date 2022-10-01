@@ -2,8 +2,8 @@
 
 
 .form-header {
-  font-size: 24px;
-  margin-bottom: 30px;
+  font-size: 1.4em;
+  margin-bottom: 20px;
 }
 
 .terms-list {
@@ -17,7 +17,7 @@
   list-style: none;
   display: flex;
   label{
-    font-size: 12px;
+    font-size: .8em;
     margin-left: 5px;
     &.checkAllTerms{
       font-weight: bold;
