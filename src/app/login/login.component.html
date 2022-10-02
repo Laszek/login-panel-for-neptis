@@ -1,13 +1,19 @@
 <header class="header">
-  <img src="/assets/images/yanosik-logo-desktop.png" alt="" class="header--logo">
+  <div class="header--logo"></div>
 </header>
 <div class="container">
   <div class="main-panel">
     <app-login-panel *ngIf="currentPanel === 'login'; else registerPanel"></app-login-panel>
     <p class="info-label">{{currentPanel === 'login' ? "Nie masz konta?" : "Masz już konto?"}}</p>
-    <button class="btn btn-stroke {{currentPanel === 'login' ? 'register' : 'login'}}" (click)="togglePanel()">{{currentPanel === 'login' ? "Zarejestruj się" : "Zaloguj się"}}</button>
+    <button
+      type="button"
+      class="btn btn-stroke {{currentPanel === 'login' ? 'register' : 'login'}}"
+      (click)="togglePanel()"
+    >
+      {{currentPanel === 'login' ? "Zarejestruj się" : "Zaloguj się"}}
+    </button>
     <ng-template #registerPanel>
-      <app-register-panel></app-register-panel>
+      <app-register-panel (onNavigateToLoginPage)="togglePanel()"></app-register-panel>
     </ng-template>
   </div>
 </div>

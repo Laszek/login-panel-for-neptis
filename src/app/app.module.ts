@@ -8,10 +8,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LoginPanelComponent } from './login/login-panel/login-panel.component';
 import { RegisterPanelComponent } from './login/register-panel/register-panel.component';
-import { FormInputComponent } from "./shared/UI/form-input/form-input.component";
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, LoginPanelComponent, RegisterPanelComponent, FormInputComponent],
+  declarations: [AppComponent, LoginComponent, LoginPanelComponent, RegisterPanelComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -3,17 +3,17 @@
 
 *, body, body:after, body:before {
   box-sizing: border-box;
-  margin:0;
+  margin: 0;
   color: $n;
   font-family: Poppins;
 }
 
 body {
-  background-color: $n3;
+  background: linear-gradient(180deg, $n3 0%, $n2 40%);
 }
 
 .btn {
-  width:100%;
+  width: 100%;
   border: 0;
   background: transparent;
   border-radius: 5px;
@@ -23,25 +23,30 @@ body {
   cursor: pointer;
   transition: background-color .3s, border .3s;
 
-  &.btn-login{
+  &.btn-login {
     background: $p1;
+
     &:hover {
       background: darken($p1, 10%);
     }
   }
-  &.btn-register{
+
+  &.btn-register {
     background: $p2;
+
     &:hover {
       background: darken($p2, 5%);
     }
   }
 
-  &.btn-stroke{
+  &.btn-stroke {
     border: 2px solid $n1;
+
     &.login:hover {
       border-color: transparent;
       background: $p1;
     }
+
     &.register:hover {
       border-color: transparent;
       background: $p2;
@@ -53,4 +58,73 @@ body {
   position: relative;
   width: 100%;
   max-width: 300px;
+}
+
+.form-input {
+  position: relative;
+  border-bottom: 1px solid white;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 3px;
+  margin: 20px 0;
+
+  input {
+    background: none;
+    border: 0;
+    font-size: 1em;
+    margin-left: 8px;
+  }
+
+  svg {
+    width: 1.5em;
+    margin-bottom: 3px;
+    fill: white;
+  }
+
+  .validation-term{
+    position: absolute;
+    right: 0;
+    bottom: -1.5em;
+    font-size: .7em;
+  }
+
+  &.invalid {
+    border-color: $p1;
+    color: $p1;
+    svg {
+      fill: $p1;
+    }
+    .validation-term{
+      color: $p1;
+      font-weight: bold;
+    }
+  }
+}
+
+.input-group.ng-submitted {
+  input.ng-invalid + label, input.ng-invalid{
+    color: $p1;
+  }
+}
+
+input[required][type="checkbox"] + label:after {
+  content: ' *';
+  color: $p1
+}
+
+.dropdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparentize($n3, .2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 80px;
+  p {
+    margin: 10px 0;
+  }
 }

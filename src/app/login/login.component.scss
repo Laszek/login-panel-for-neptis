@@ -1,10 +1,24 @@
 @import "../../helpers";
 
 .header {
-  height: 13vh;
-  img {
+  height: 100px;
+  width: 100%;
+  position: relative;
+
+  .header--logo {
+    position: relative;
     height: 100%;
+    width: 100%;
+    background-image: url('../../assets/images/yanosik-logo-desktop.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include devices(mobile) {
+      background-image: url('../../assets/images/yanosik-logo-mobile.png');
+    }
   }
+
   text-align: center;
 }
 
@@ -13,8 +27,8 @@
   justify-content: center;
   position: relative;
   padding: 20px;
-  width: 100vw;
-  min-height: 87vh;
+  width: 100%;
+  min-height: calc(100vh - 100px);
   overflow: hidden;
   background-image: url("../../assets/images/login-background.jpg");
   -webkit-background-size: cover;
@@ -29,6 +43,8 @@
   height: 100%;
   padding: 40px 80px;
   position: relative;
+  border-radius: 5px;
+  overflow: hidden;
 
   background: radial-gradient(circle, #383838, #2F2F2F, #292929, #282828, #1D1D1D);
   box-shadow: /*bottom shadow*/

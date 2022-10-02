@@ -1,6 +1,5 @@
 @import "./src/styles";
 
-
 .form-header {
   font-size: 1.4em;
   margin-bottom: 20px;
@@ -13,13 +12,15 @@
   width: 100%;
 }
 
-.terms-list-item{
+.terms-list-item {
   list-style: none;
   display: flex;
-  label{
+
+  label {
     font-size: .8em;
     margin-left: 5px;
-    &.checkAllTerms{
+
+    &.checkAllTerms {
       font-weight: bold;
     }
   }
@@ -40,16 +41,16 @@ input[type="checkbox"] {
   padding: 6px;
   border-radius: 5px;
   display: inline-block;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
 
   &:active, &:checked:active, &:hover {
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px rgba(0, 0, 0, 0.1);
     border-color: $n2;
   }
 
   &:checked {
     background-color: $n1;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
     color: #99a1a7;
   }
 

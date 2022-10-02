@@ -1,30 +1,101 @@
 <div class="panel register-panel">
   <h3 class="form-header">Rejestracja</h3>
-  <form class="input-group">
-    <app-form-input
-      name="email"
-      placeholder="E-mail"
-      iconPath="./assets/images/icons/email.svg"
-    ></app-form-input>
-    <app-form-input
-      name="password"
-      placeholder="Hasło"
-      iconPath="./assets/images/icons/lock.svg"
-      type="password"
-    ></app-form-input>
-    <app-form-input
-      name="repeat-password"
-      placeholder="Powtórz hasło"
-      iconPath="./assets/images/icons/lock.svg"
-      type="password"
-    ></app-form-input>
+  <form
+    #f="ngForm"
+    (ngSubmit)="onSubmit(f)"
+    class="input-group"
+  >
+    <div class="form-input {{(!emailInput.valid && f.submitted) && 'invalid'}}">
+      <svg fill="white" viewBox="0 0 20 16" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M0.457585 1.40673C0.324955 1.61793 0.411543 1.88824 0.62359 2.0195L9.47354 7.49804C9.79605 7.69769 10.2037 7.69769 10.5262 7.49804L19.3764 2.01941C19.5884 1.88814 19.675 1.61782 19.5423 1.40662C19.0117 0.561666 18.0714 0 17 0H3C1.92853 0 0.988253 0.561714 0.457585 1.40673Z"/>
+        <path
+          d="M20 4.88312C20 4.49137 19.5699 4.25179 19.2368 4.45799L11.579 9.19857C10.6114 9.79751 9.38835 9.79751 8.42083 9.19857L0.763176 4.45812C0.430081 4.25192 0 4.4915 0 4.88326V13C0 14.6569 1.34315 16 3 16H17C18.6569 16 20 14.6569 20 13V4.88312Z"/>
+      </svg>
+      <input
+        #emailInput="ngModel"
+        email
+        name="email"
+        ngModel
+        placeholder="E-mail"
+        required
+        type="text"
+      >
+    </div>
+    <div class="form-input {{(!passwordInput.valid && f.submitted) && 'invalid'}}">
+      <svg viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M3 5V6C1.34315 6 0 7.34315 0 9V17C0 18.6569 1.34315 20 3 20H13C14.6569 20 16 18.6569 16 17V9C16 7.34315 14.6569 6 13 6V5C13 2.23858 10.7614 0 8 0C5.23858 0 3 2.23858 3 5ZM8 2C6.34315 2 5 3.34315 5 5V6H11V5C11 3.34315 9.65685 2 8 2ZM10 12C10 12.7403 9.5978 13.3866 9 13.7324V15C9 15.5523 8.55228 16 8 16C7.44772 16 7 15.5523 7 15V13.7324C6.4022 13.3866 6 12.7403 6 12C6 10.8954 6.89543 10 8 10C9.10457 10 10 10.8954 10 12Z"
+          fill-rule="evenodd"/>
+      </svg>
+      <input
+        #passwordInput="ngModel"
+        minlength="6"
+        name="password"
+        ngModel
+        placeholder="Hasło"
+        required
+        type="password"
+      >
+      <span class="validation-term">min. 6 znaków</span>
+    </div>
+    <div class="form-input {{(!repeatPassInput.valid && f.submitted) && 'invalid'}}">
+      <svg viewBox="0 0 16 20" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M3 5V6C1.34315 6 0 7.34315 0 9V17C0 18.6569 1.34315 20 3 20H13C14.6569 20 16 18.6569 16 17V9C16 7.34315 14.6569 6 13 6V5C13 2.23858 10.7614 0 8 0C5.23858 0 3 2.23858 3 5ZM8 2C6.34315 2 5 3.34315 5 5V6H11V5C11 3.34315 9.65685 2 8 2ZM10 12C10 12.7403 9.5978 13.3866 9 13.7324V15C9 15.5523 8.55228 16 8 16C7.44772 16 7 15.5523 7 15V13.7324C6.4022 13.3866 6 12.7403 6 12C6 10.8954 6.89543 10 8 10C9.10457 10 10 10.8954 10 12Z"
+          fill-rule="evenodd"/>
+      </svg>
+      <input
+        #repeatPassInput="ngModel"
+        minlength="6"
+        name="repeatpassword"
+        ngModel
+        placeholder="Powtórz hasło"
+        required
+        type="password"
+        pattern="{{passwordInput.value}}"
+      >
+      <span class="validation-term" *ngIf="!repeatPassInput.valid && f.submitted">Hasła muszą być identyczne</span>
+    </div>
     <ul class="terms-list">
-      <li class="terms-list-item"><input type="checkbox" name="checkAllTerms" id="checkAllTerms"><label for="checkAllTerms" class="checkAllTerms">Akceptuję wszystkie zgody</label></li>
-      <li class="terms-list-item" *ngFor="let term of terms; let index = index">
-        <input type="checkbox" name="term{{index}}" id="term{{index}}">
-        <label for="term{{index}}">{{term.text}}</label>
+      <li class="terms-list-item">
+        <input
+          [checked]="(term1 && term2 && term3)"
+          (change)="checkAllTerms($event)"
+          id="checkAllTerms"
+          name="checkAllTerms"
+          type="checkbox"
+        >
+        <label class="checkAllTerms" for="checkAllTerms">Akceptuję wszystkie zgody</label>
+      </li>
+      <li class="terms-list-item">
+        <input
+          id="term1"
+          name="term1"
+          [(ngModel)]="term1"
+          required
+          type="checkbox">
+        <label for="term1">"Zapoznałem/am się z Regulaminem"</label>
+      </li>
+      <li class="terms-list-item">
+        <input
+          id="term2"
+          name="term2"
+          [(ngModel)]="term2"
+          required
+          type="checkbox">
+        <label for="term2">"Zapoznałem/am się z Polityką Prywatności"</label>
+      </li>
+      <li class="terms-list-item">
+        <input
+          id="term3"
+          name="term3"
+          [(ngModel)]="term3"
+          type="checkbox">
+        <label for="term3">Wyrażam zgodę na przetwarzanie moich danych w celach marketingowych</label>
       </li>
     </ul>
-    <button type="submit" class="btn btn-register">Zarejestruj się</button>
+    <button class="btn btn-register" type="submit">Zarejestruj się</button>
   </form>
 </div>
+
